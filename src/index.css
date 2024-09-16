@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: "Poppins";
+    --color-fg: 0 0% 0%;
+    --color-bg: 0 0% 100%;
+    --color-primary-50: 69 82% 94%;
+    --color-primary-100: 72 85% 89%;
+    --color-primary-200: 75 77% 80%;
+    --color-primary-300: 78 79% 66%;
+    --color-primary-400: 82 70% 54%;
+    --color-primary-500: 85 73% 45%;
+    --color-primary-600: 85 76% 34%;
+    --color-primary-700: 85 71% 27%;
+    --color-primary-800: 85 61% 21%;
+    --color-primary-900: 86 54% 18%;
+    --color-primary-950: 86 66% 9%;
+
+    --radius: 0.7rem;
+    --radius-lg: 2rem;
+    --radius-sm: 0.5rem;
+  }
+}
+@layer utilities {
+  .svg-font-scale svg {
+    height: 1em;
+    width: 1em;
+  }
+  svg.svg-font-scale {
+    height: 1em;
+    width: 1em;
+  }
+  .decoration-thickness-1 {
+    text-decoration-thickness: 1px;
+  }
+}

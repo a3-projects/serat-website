@@ -1,0 +1,116 @@
+---
+import { Text } from "@/design-system/components/Text"
+import GreenBlur from "@/components/illustrations/GreenBlur.astro"
+import { BadgeCheckIcon } from "lucide-react"
+import { button } from "@/design-system/components/Button"
+
+const testimonials = [
+  [
+    {
+      text: "Dank TELESON spare ich jetzt 30% bei meiner Stromrechnung. Der Wechsel war überraschend einfach.",
+      name: "Lisa",
+      occupation: "Lehrerin",
+    },
+    {
+      text: "TELESON hat mir geholfen, den besten Tarif für mein kleines Unternehmen zu finden. Ich spare jetzt über 2.000€ im Jahr.",
+      name: "Thomas",
+      occupation: "Café-Besitzer",
+    },
+    {
+      text: "Ich war skeptisch, aber TELESON hat mich überzeugt. Meine Energiekosten sind um 40% gesunken!",
+      name: "Anna",
+      occupation: "Rentnerin",
+    },
+  ],
+  [
+    {
+      text: "TELESON hat mir geholfen, auf erneuerbare Energien umzusteigen und dabei noch Geld zu sparen. Fantastisch!",
+      name: "Michael",
+      occupation: "Ingenieur",
+    },
+    {
+      text: "Als Studentin war ich überrascht, wie viel ich mit TELESON sparen konnte. Der Kundenservice ist auch top!",
+      name: "Sophie",
+      occupation: "Studentin",
+    },
+    /*{
+      text: "TELESON hat mir geholfen, den Energieverbrauch meines Betriebs zu optimieren. Die Einsparungen sind beachtlich.",
+      name: "Klaus",
+      occupation: "Fabrikbesitzer",
+    },*/
+  ],
+  [
+    {
+      text: "Mit TELESON konnte ich endlich meine Energiekosten unter Kontrolle bringen. Ich spare jetzt über 500€ im Jahr.",
+      name: "Petra",
+      occupation: "Einzelhandelskauffrau",
+    },
+    {
+      text: "TELESON hat mir nicht nur Geld gespart, sondern auch geholfen, umweltbewusster zu leben. Eine Win-Win-Situation!",
+      name: "Markus",
+      occupation: "Umweltberater",
+    },
+    {
+      text: "Als Großfamilie haben wir dank TELESON unsere Energiekosten um 35% reduziert. Das macht einen echten Unterschied!",
+      name: "Familie Müller",
+      occupation: "5-köpfige Familie",
+    },
+  ],
+]
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-primary-50 to-primary-200 ~py-20/40">
+  <GreenBlur class="absolute left-1/2 h-full w-[100vw] -translate-x-1/2" />
+  <div class="container relative mx-auto">
+    <Text as="h2" ty="hero" className="relative mx-auto max-w-prose hyphens-auto text-center">
+      Noch unsicher?
+    </Text>
+    <Text ty="subtitle" className="relative mx-auto max-w-prose hyphens-auto text-center ~mt-4/8">
+      Echte Erfahrungen, echte Einsparungen. Alle Bewertungen sind von verifizierten Kunden.
+    </Text>
+
+    <div class="grid grid-cols-1 gap-2 ~my-20/40 ~px-4/8 md:grid-cols-3">
+      {
+        testimonials.map((column, columnIndex) => (
+          <div class={`flex flex-col gap-2 ${columnIndex % 2 === 0 ? "md:~mt-8/12" : ""}`}>
+            {column.map(testimonial => (
+              <div class="relative rounded-lg bg-white/80 backdrop-blur-sm transition-all ease-out ~px-8/12 ~py-12/20 hover:z-10 hover:scale-110 hover:shadow-xl hover:shadow-primary/30">
+                <Text ty="subtitle">{testimonial.text}</Text>
+                <div class="flex flex-col justify-center ~mt-6/10">
+                  <div class="flex w-full items-center gap-2">
+                    <Text className="flex " ty="body">
+                      {testimonial.name}
+                    </Text>
+                    <Text ty="caption" className="flex items-center gap-1 text-info-600">
+                      <BadgeCheckIcon className="svg-font-scale" />
+                      <span class="-ml-[2px]">verifiziert</span>
+                    </Text>
+                  </div>
+
+                  <Text ty="caption" className="leading-[0.8] text-neutral-500">
+                    {testimonial.occupation}
+                  </Text>
+                </div>
+              </div>
+            ))}
+            {columnIndex === 1 && (
+              <a
+                class="cursor-pointer rounded-lg border-primary-500 bg-black p-1 backdrop-blur-sm transition-all ease-out hover:z-10 hover:scale-110 hover:shadow-xl hover:shadow-primary/30",
+                href="#rechnung-hochladen"
+              >
+                <div class="rounded-lg ~px-8/12 ~py-12/20">
+                  <Text ty="hero" className="text-white text-center">
+                    Jetzt bist du dran!
+                  </Text>
+                  <div class="flex flex-col justify-center ~mt-6/10">
+                    <span class={button({ size: "lg" })}> Jetzt sparen </span>
+                  </div>
+                </div>
+              </a>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

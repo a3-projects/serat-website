@@ -1,0 +1,22 @@
+---
+import { SEO } from "astro-seo"
+import { ViewTransitions } from "astro:transitions"
+
+interface Props {
+  title: string
+  // body: string
+  // href: string
+}
+
+const { title } = Astro.props
+---
+
+<head>
+  <SEO charset="UTF-8" title={title} />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href={"/favicon.svg"} />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <ViewTransitions />
+  <slot />
+</head>

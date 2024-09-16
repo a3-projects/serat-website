@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+interface Props extends HTMLAttributes<"svg"> {}
+
+const props = Astro.props
+---
+
+<svg
+  viewBox="0 0 677 42"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xml:space="preserve"
+  style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+  {...props}
+  ><path d="M676.94,31.6l-0,9.611l-676.94,0l0,-9.611c222.082,-42.188 447.717,-42.079 676.94,0Z"
+  ></path></svg
+>

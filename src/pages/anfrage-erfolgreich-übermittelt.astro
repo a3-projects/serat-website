@@ -1,0 +1,43 @@
+---
+import Head from "@/components/Head.astro"
+import { CheckIcon, MoveLeft } from "lucide-react"
+import { Text } from "@/design-system/components/Text"
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout>
+  <Head title="Anfrage übermittelt">
+    <body>
+      <main>
+        <section
+          id="home"
+          class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-primary-50 ~px-4/8"
+        >
+          <CheckIcon className="absolute text-primary-500/30" strokeWidth={4} size="200vw" />
+
+          <div class="relative mx-auto flex max-w-prose flex-col items-center justify-center">
+            <Text as="h1" ty="hero" className="text-center ~mt-8/12">
+              Anfrage erfolgreich übermittelt.
+            </Text>
+            <Text ty="subtitle" className="text-center ~mt-8/12">
+              Wir melden uns innerhalb von 24 Stunden bei dir.
+            </Text>
+            <div
+              class="group flex cursor-pointer items-center gap-2 rounded-full px-6 py-4 text-black underline-offset-4 ~mt-8/12"
+            >
+              <MoveLeft className="relative transition-all group-hover:-translate-x-1" />
+              <a href="/" class="text-fl-base group-hover:underline">Zurück zur Startseite</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </body>
+
+    <style>
+      body {
+        /* Workaround: Somehow adding class or id  on body element will get removed when opening it in the browser*/
+        @apply flex min-h-screen flex-col;
+      }
+    </style>
+  </Head>
+</Layout>

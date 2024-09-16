@@ -1,0 +1,39 @@
+---
+import "@fontsource/poppins"
+import "@fontsource/poppins/300.css"
+import "@fontsource/poppins/400.css"
+import "@fontsource/poppins/700.css"
+
+import "@/index.css"
+import { text } from "@/design-system/components/Text"
+import Piwik from "@/components/Piwik.astro"
+
+// if (!import.meta.env.PROD) {
+//   const originalWarn = console.warn
+
+//   // Disable radix react 19 errors
+//   console.error = (...args) => {
+//     const message = args[0]
+//     if (
+//       typeof message === "string" &&
+//       message.includes("Accessing element.ref was removed in React 19. ref is now a regular prop")
+//     ) {
+//       return
+//     }
+//     originalWarn(...args)
+//   }
+// }
+---
+
+<!doctype html>
+<html class={text({ ty: "body" })} lang="de" transition:name="html" transition:animate="fade">
+  <Piwik />
+  <slot />
+  <style is:global>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+
+</html>

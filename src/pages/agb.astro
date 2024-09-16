@@ -1,0 +1,68 @@
+---
+import Head from "@/components/Head.astro"
+import { Link } from "@/design-system/components/Link"
+import Layout from "@/layouts/Layout.astro"
+---
+
+<Layout>
+  <Head title="Datenschutz" />
+  <main class="relative bg-white font-sans ~py-20/40">
+    <div class="container prose mx-auto max-w-prose">
+      <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+
+      <p>
+        Willkommen auf unserer Webseite. Durch die Nutzung unseres Services akzeptieren Sie die
+        folgenden AGB. Bitte lesen Sie diese sorgfältig durch.
+      </p>
+
+      <h2>1. Beschreibung des Services</h2>
+      <p>
+        Unser Service ermöglicht es Ihnen, Ihre Energierechnung hochzuladen und analysieren zu
+        lassen. Basierend auf dieser Analyse können wir Ihnen potenziell günstigere Energieangebote
+        unterbreiten.
+      </p>
+
+      <h2>2. Nutzung des Upload-Formulars</h2>
+      <p>
+        Sie dürfen das Upload-Formular nur für den vorgesehenen Zweck nutzen. Das Hochladen von
+        schädlichen oder illegalen Inhalten ist strengstens untersagt.
+      </p>
+
+      <h2>3. Datenschutz und Einwilligung</h2>
+      <p>
+        Mit der Nutzung unseres Services stimmen Sie unserer <Link
+          href="/datenschutz"
+          target="_blank"
+          variant="plain">Datenschutzerklärung</Link
+        > zu. Wir verarbeiten Ihre Daten ausschließlich zum Zweck der Rechnungsanalyse und Kontaktaufnahme.
+      </p>
+
+      <h2>4. Haftungsbeschränkung</h2>
+      <p>
+        Wir bemühen uns, akkurate Analysen und Angebote bereitzustellen, können jedoch keine
+        Garantie für die Richtigkeit übernehmen. Unsere Haftung ist auf Vorsatz und grobe
+        Fahrlässigkeit beschränkt.
+      </p>
+
+      <h2>5. Unverbindlichkeit der Angebote</h2>
+      <p>
+        Alle von uns unterbreiteten Angebote sind unverbindlich und stellen keine vertragliche
+        Zusicherung dar.
+      </p>
+
+      <h2>6. Änderungen der AGB</h2>
+      <p>
+        Wir behalten uns das Recht vor, diese AGB jederzeit zu ändern. Die
+        aktuellste Version finden Sie stets auf dieser Seite.
+      </p>
+
+      <h2>7. Kontakt</h2>
+      <p>
+        Bei Fragen zu diesen AGB kontaktieren Sie uns bitte unter: [Ihre
+        Kontaktinformationen]
+      </p>
+
+      <p><strong>Letzte Aktualisierung:</strong> [Aktuelles Datum]</p>
+    </div>
+  </main>
+</Layout>
