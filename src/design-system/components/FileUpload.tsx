@@ -87,7 +87,7 @@ const FileUploadBody = forwardRef<
 })
 
 export const fileUploadTrigger = tv({
-  base: "flex flex-col gap-2 items-center justify-center group  fl-text-step--2 w-full h-full ",
+  base: "flex flex-col gap-2 items-center text-center justify-center group w-full h-full ",
 })
 
 export interface FileUploadTriggerProps extends VariantProps<typeof fileUploadTrigger> {

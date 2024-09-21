@@ -2,7 +2,7 @@ import { FileUploadField } from "@/design-system/components/FileUploadField"
 
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { FileUploadPreview } from "@/design-system/components/FielUploadPreview"
+import { FileUploadPreview } from "@/design-system/components/FileUploadPreview"
 import { Button } from "@/design-system/components/Button"
 import { cn } from "@/design-system/lib/utils"
 import { Link } from "@/design-system/components/Link"
@@ -18,6 +18,7 @@ import { navigate } from "astro:transitions/client"
 import {
   invoiceUploadSchema,
   filesSchema,
+  FILE_INPUT_ACCEPT,
 } from "@/domains/home/invoice-upload/InvoiceUploadFormValues"
 import { z } from "astro:schema"
 
@@ -139,11 +140,13 @@ export const InvoiceUploadForm = () => {
             }
             {...register("email", {})}
           />
-          <div className={cn({ hidden: false })}>
+          <div>
             <FileUploadField
               errors={errors.files}
               label="Rechnung/en reinziehen oder per Klick hochladen"
               multiple
+              accept={FILE_INPUT_ACCEPT}
+              isUploadHidden={hasFiles}
               onFilesDrop={files => {
                 setValue("files", files, { shouldValidate: true })
                 window.scrollTo({
@@ -159,7 +162,11 @@ export const InvoiceUploadForm = () => {
             >
               {hasFiles && (
                 <div className="w-full">
-                  <ul className="mt-4 flex flex-col divide-y rounded border">
+                  <ul
+                    className={cn("flex flex-col divide-y rounded border", {
+                      "divide-destructive-400 border-destructive-400": !!errors.files,
+                    })}
+                  >
                     {Array.from(files).map((file, index) => (
                       <li key={file.name}>
                         <FileUploadPreview onDelete={() => handleRemoveFile(index)} file={file} />

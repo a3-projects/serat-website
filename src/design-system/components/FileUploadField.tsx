@@ -9,17 +9,19 @@ import { FileUpload } from "@/design-system/components/FileUpload"
 import { mergeRefs } from "@/design-system/lib/merge-refs"
 import { createPortal } from "react-dom"
 import { Text } from "@/design-system/components/Text"
+import { cn } from "@/design-system/lib/utils"
 
 export interface FileUploadFieldProps extends Omit<CommonFormFieldProps, "label"> {
   label: string
   onFilesDrop: (files: FileList) => void
+  isUploadHidden?: boolean
 }
 
 export const FileUploadField = forwardRef<
   ElementRef<typeof FileUpload.Input>,
   FileUploadFieldProps & ComponentPropsWithoutRef<typeof FileUpload.Input>
 >((props, ref) => {
-  const { children, className, state, label, src, errors, onFilesDrop, onMouseDown, ...rest } =
+  const { children, className, state, label, src, errors, onFilesDrop, onMouseDown,isUploadHidden, ...rest } =
     props
   const formState = getFormState(props)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
@@ -98,6 +100,8 @@ export const FileUploadField = forwardRef<
       event.preventDefault()
     }
   }
+
+
   return (
     <FormField state={formState} className="items-start">
       {isFieldVisible &&
@@ -118,7 +122,7 @@ export const FileUploadField = forwardRef<
           </div>,
           document.body,
         )}
-      <FileUpload state={formState}>
+      <FileUpload className={cn({hidden: isUploadHidden})} state={formState}>
         <FileUpload.Trigger label={label}>
           <FileUpload.Input
             ref={mergeRefs([fileInputRef, ref])}
@@ -128,7 +132,6 @@ export const FileUploadField = forwardRef<
         </FileUpload.Trigger>
       </FileUpload>
       {children}
-
       {!!errors && (
         <FormField.Caption>
           {(typeof errors === "string" ? errors : errors?.message) ?? "Fehler"}

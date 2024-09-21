@@ -1,7 +1,7 @@
 import { Button } from "@/design-system/components/Button"
 import { useFormFieldContext } from "@/design-system/components/FormField"
 import { Text } from "@/design-system/components/Text"
-import { FileIcon, XIcon } from "lucide-react"
+import { CheckIcon, XCircleIcon, XIcon } from "lucide-react"
 import { forwardRef, type ElementRef, type ComponentPropsWithoutRef } from "react"
 import { tv } from "tailwind-variants"
 
@@ -41,7 +41,9 @@ export const FileUploadPreview = forwardRef<
 
   return (
     <div ref={ref} className={fileUploadPreview({ state })} {...rest}>
-      <FileIcon strokeWidth={1} size={24} />
+      {state !== "destructive" && <CheckIcon className="text-primary-500" size={28} />}
+      {state === "destructive" && <XCircleIcon className="text-destructive-400" size={28} />}
+
       <div className="flex w-full items-center justify-between ~gap-4/8">
         <div className="flex flex-col">
           <Text ty="caption" className="line-clamp-1">
